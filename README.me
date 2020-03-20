@@ -1,0 +1,64 @@
+bike-safety-api
+
+NodeJS/express app accessing Dynamo Database.
+
+POST:
+
+http://localhost:9000/bikeloc
+
+example body:
+
+{
+"lat":"41.1",
+"long":"-80.3",
+"reason": "downed tree"
+}
+
+GET (single bikeloc by id)
+
+http://localhost:9000/bikeloc/bikelocId/86b92ad0-6271-11ea-af1c-431f81ca5bee
+
+example response:
+
+{
+   "bikelocId":"86b92ad0-6271-11ea-af1c-431f81ca5bee",
+   "bikelocDate":"2020-03-10T01:50:31.933Z",
+   "lat":"40.7",
+   "long":"-82.3",
+   "reason":"construction"
+}
+
+
+GET (all bikelocs)
+
+http://localhost:9000/bikeloc/*
+
+example response:
+
+{
+   "Items":[
+      {
+         "bikelocId":"30e4fcb0-6af0-11ea-9cac-95e908a14fe0",
+         "bikelocDate":"2020-03-20T21:17:23.323Z",
+         "lat":"41.1",
+         "long":"-80.3",
+         "reason":"downed-tree"
+      },
+      {
+         "bikelocId":"19b0b630-6af3-11ea-9cac-95e908a14fe0",
+         "bikelocDate":"2020-03-20T21:38:12.883Z",
+         "lat":"41",
+         "long":"-82",
+         "reason":"sharp-turn"
+      },
+      {
+         "bikelocId":"48da1370-6af3-11ea-9cac-95e908a14fe0",
+         "bikelocDate":"2020-03-20T21:39:32.007Z",
+         "lat":"40",
+         "long":"-82",
+         "reason":"road-conditions"
+      }
+   ],
+   "Count":3,
+   "ScannedCount":3
+}
